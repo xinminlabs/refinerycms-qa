@@ -1,7 +1,7 @@
 module Refinery
   module Qa
     class QuestionsController < ::ApplicationController
-      cache_sweeper Pages::PageSweeper
+      cache_sweeper QuestionSweeper
 
       before_filter :find_page, only: [:create, :new]
       before_filter :find_thank_you_page, only: :thank_you
