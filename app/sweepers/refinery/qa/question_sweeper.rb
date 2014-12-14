@@ -17,7 +17,7 @@ module Refinery
       end
 
       def caching
-        @caching ||= Caching.new(cache_directory)
+        @caching ||= Pages::Caching.new(cache_directory)
       end
 
       def expire_cache!
