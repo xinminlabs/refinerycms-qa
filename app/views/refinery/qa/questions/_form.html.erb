@@ -1,0 +1,22 @@
+<%= form_for [refinery, :qa, question] do |f| %>
+  <%= render :partial => "/refinery/admin/error_messages",
+             :locals => {
+               :object => question,
+               :include_object_name => true
+             } %>
+  <div class="field">
+    <%= f.label :name, '姓名', :class => 'placeholder-fallback' %>
+    <%= f.text_field :name, :class => 'text', :required => 'required' %>
+  </div>
+  <div class="field">
+    <%= f.label :title, '标题', :class => 'placeholder-fallback' %>
+    <%= f.text_field :title, :class => 'text', :required => 'required' %>
+  </div>
+  <div class='field message_field'>
+    <%= f.label :body, '内容', :class => 'placeholder-fallback' %>
+    <%= f.text_area :body, :rows => 8, :required => 'required' %>
+  </div>
+  <div class="actions">
+    <%= f.submit '发送' %>
+  </div>
+<% end %>

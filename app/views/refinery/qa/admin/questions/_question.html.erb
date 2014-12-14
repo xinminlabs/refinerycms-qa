@@ -1,0 +1,17 @@
+<li class='clearfix record <%= cycle("on", "on-hover") %>'>
+  <span class='title'>
+    <%= question.name %> <%= t('.said') %>
+    <%= link_to question.title, refinery.qa_admin_question_path(question) %>
+    <span class="preview"><%= truncate(strip_tags(sanitize(question.body)), :length => 60) -%></span>
+  </span>
+  <span class='actions'>
+    <%= link_to refinery_icon_tag('delete.png'),
+                refinery.qa_admin_question_path(question),
+                :class => "cancel confirm-delete",
+                :title => t('refinery.qa.admin.questions.delete'),
+                :method => :delete -%>
+
+    <%= link_to refinery_icon_tag('zoom.png'), refinery.qa_admin_question_path(question),
+                :title => t('.read_question') -%>
+  </span>
+</li>

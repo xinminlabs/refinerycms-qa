@@ -1,0 +1,8 @@
+<div id='records'>
+  <%= will_paginate @questions %>
+  <% group_by_date(@questions).each do |container| %>
+    <h3><%= l((question_group = container.last).first.created_at, :format => :short) %></h3>
+    <ul><%= render :partial => 'question', :collection => question_group %></ul>
+  <% end %>
+  <%= will_paginate @questions %>
+</div>

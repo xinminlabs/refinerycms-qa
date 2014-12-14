@@ -1,0 +1,15 @@
+<div class="page-content">
+  <div class="content-title">
+    <h1><%= @question.title %></h1>
+  </div>
+  <div class="content-body">
+    <div class="qa">
+      <p id="question">问：<%= @question.body.html_safe %></p>
+      <p id="answer">
+        <% if @answer %>
+          答：<%= @answer.body.html_safe %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+</div>

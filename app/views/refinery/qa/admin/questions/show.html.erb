@@ -1,0 +1,78 @@
+<div id='actions'>
+  <h2><%= t('.details')%></h2>
+  <p>
+    <strong><%= t('.age') %>:</strong> <%= time_ago_in_words(@question.created_at) %>
+  </p>
+  <h2><%= t('.actions') %></h2>
+  <ul>
+    <li>
+      <%= link_to t('.back_to_all_questions'),
+                  refinery.qa_admin_questions_path,
+                  :class => "back_icon" %>
+    </li>
+    <li>
+      <%= link_to t('refinery.qa.admin.questions.delete'),
+                  refinery.qa_admin_question_path(@question),
+                  :class => 'delete_icon no-tooltip confirm-delete',
+                  :title => t('refinery.qa.admin.questions.delete'),
+                  :data => {
+                    :confirm => t('refinery.admin.delete.message', :title => @question.title)
+                  },
+                  :method => :delete %>
+    </li>
+  </ul>
+</div>
+<div id='records'>
+  <h2><%= t('.question') %></h2>
+  <table id='question'>
+    <tr>
+      <td>
+        <strong><%= t('.title') %></strong>
+      </td>
+      <td>
+        <%= @question.title %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><%= t('.from') %></strong>
+      </td>
+      <td>
+        <%= @question.name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong><%= t('.date') %></strong>
+      </td>
+      <td>
+        <%= l(Date.parse(@question.created_at.to_s), :format => :long) %>
+      </td>
+    </tr>
+    <tr>
+      <td valign='top'>
+        <strong><%= t('.body') %></strong>
+      </td>
+      <td>
+        <%= simple_format strip_tags(@question.body), :style => 'margin-top: 0' %>
+      </td>
+    </tr>
+  </table>
+  <%= form_for [refinery, :qa, :admin, @question, @answer] do |f| %>
+  <table id='answer'>
+    <tr>
+      <td valign='top'>
+        <strong>回答</strong>
+      </td>
+      <td>
+        <%= f.text_area :body, :rows => 8, :style => "width: 400px", :required => 'required' %>
+      </td>
+    </tr>
+    <tr>
+      <td colspan='2'>
+        <%= f.submit '发送' %>
+      </td>
+    </tr>
+  </table>
+  <% end %>
+</div>

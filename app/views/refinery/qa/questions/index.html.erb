@@ -1,0 +1,16 @@
+<div class="page-content">
+  <div class="content-title">
+    <h1>问答</h1>
+  </div>
+  <div class="content-body">
+    <div class="qa">
+      <ul>
+        <% @questions.each do |question| %>
+          <li>
+            <%= link_to question.title, refinery.qa_question_path(question, :locale => 'en') %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
