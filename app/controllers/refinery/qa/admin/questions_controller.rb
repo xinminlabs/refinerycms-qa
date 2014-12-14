@@ -2,6 +2,7 @@ module Refinery
   module Qa
     module Admin
       class QuestionsController < ::Refinery::AdminController
+        cache_sweeper Pages::PageSweeper
 
         crudify :'refinery/qa/question',
                 :title_attribute => "title",

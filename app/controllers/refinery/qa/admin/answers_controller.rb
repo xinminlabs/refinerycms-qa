@@ -2,6 +2,7 @@ module Refinery
   module Qa
     module Admin
       class AnswersController < ::Refinery::AdminController
+        cache_sweeper Pages::PageSweeper
 
         def create
           @question = Refinery::Qa::Question.find(params[:question_id])
