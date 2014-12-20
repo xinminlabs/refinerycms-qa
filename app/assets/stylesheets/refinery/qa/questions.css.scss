@@ -1,21 +1,75 @@
 .qa {
+  padding: 0 30px;
+  font-weight: bold;
+  font-size: 14px;
   form {
-    padding-top: 12px;
     label {
       width: 150px;
       float: left;
     }
-    input {
-      width: 200px;
+    input, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 5px 10px;
+      border-radius: 5px;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
     }
     .field {
       margin: 12px 0px;
     }
     .actions {
-      margin-left: 150px;
-      input {
-        width: auto;
+      text-align: right;
+      input[type=submit] {
+        width: 212px;
+        height: 42px;
+        background: url(asset-path("refinery/qa/btn_bg.png", image)) no-repeat 0 0;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 10px;
       }
+      button {
+        width: 212px;
+        height: 42px;
+        margin-right: 30px;
+        background: url(asset-path("refinery/qa/btn_bg.png", image)) no-repeat 0 0;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        letter-spacing: 10px;
+      }
+    }
+  }
+  &.center {
+    text-align: center;
+  }
+  p.thank-you {
+    width: 510px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    margin: 20px auto;
+    background: url(asset-path("refinery/qa/ok.png", image)) no-repeat 0 0;
+    padding-left: 60px;
+  }
+  a.close {
+    width: 212px;
+    height: 42px;
+    line-height: 42px;
+    margin: 40px auto;
+    background: url(asset-path("refinery/qa/btn_bg.png", image)) no-repeat 0 0;
+    border: none;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    letter-spacing: 5px;
+    text-decoration: none;
+  }
+  ol li {
+    margin: 10px;
+    p {
+      margin: 0;
     }
   }
 }

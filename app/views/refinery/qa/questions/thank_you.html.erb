@@ -1,8 +1,13 @@
 <div class="page-content">
-  <div class="content-title">
-    <h1><%= @page.title %></h1>
-  </div>
-  <div class="content-body">
-    <p><%= @page.content_for(:body).html_safe %></p>
+  <div class="main-content full">
+    <div class="content-title">
+      <h1>在线提问</h1>
+    </div>
+    <div class="content-body">
+      <div class="qa center">
+        <p class='thank-you'>我们已经收到您的问题，我们将尽快答复您，请及时查阅问题列表更新</p>
+        <%= link_to '返回首页', '/', class: 'close' %>
+      </div>
+    </div>
   </div>
 </div>

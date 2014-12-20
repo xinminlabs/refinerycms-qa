@@ -4,19 +4,13 @@
                :object => question,
                :include_object_name => true
              } %>
-  <div class="field">
-    <%= f.label :name, '姓名', :class => 'placeholder-fallback' %>
-    <%= f.text_field :name, :class => 'text', :required => 'required' %>
-  </div>
-  <div class="field">
-    <%= f.label :title, '标题', :class => 'placeholder-fallback' %>
-    <%= f.text_field :title, :class => 'text', :required => 'required' %>
-  </div>
-  <div class='field message_field'>
-    <%= f.label :body, '内容', :class => 'placeholder-fallback' %>
-    <%= f.text_area :body, :rows => 8, :required => 'required' %>
+  <div class="fields">
+    <%= f.text_field :name, :class => 'text', :required => 'required', :placeholder => '输入你的姓名' %>
+    <%= f.text_field :title, :class => 'text', :required => 'required', :placeholder => '输入你的问题' %>
+    <%= f.text_area :body, :rows => 8, :required => 'required', :placeholder => '请描述你的问题' %>
   </div>
   <div class="actions">
-    <%= f.submit '发送' %>
+    <%= f.button  '重置', type: 'button' %>
+    <%= f.submit '提交' %>
   </div>
 <% end %>

@@ -3,9 +3,6 @@ module Refinery
     class QuestionsController < ::ApplicationController
       cache_sweeper QuestionSweeper
 
-      before_filter :find_page, only: [:create, :new]
-      before_filter :find_thank_you_page, only: :thank_you
-
       def thank_you
       end
 
@@ -30,16 +27,6 @@ module Refinery
       def show
         @question = Question.find(params[:id])
         @answer = @question.answer
-      end
-
-      protected
-
-      def find_page
-        @page = Page.where(link_url: Refinery::Qa.page_path_new).first
-      end
-
-      def find_thank_you_page
-        @page = Page.where(link_url: Refinery::Qa.page_path_thank_you).first
       end
 
     end

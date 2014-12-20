@@ -1,16 +1,20 @@
 <div class="page-content">
-  <div class="content-title">
-    <h1>问答</h1>
-  </div>
-  <div class="content-body">
-    <div class="qa">
-      <ul>
-        <% @questions.each do |question| %>
-          <li>
-            <%= link_to question.title, refinery.qa_question_path(question, :locale => 'en') %>
-          </li>
-        <% end %>
-      </ul>
+  <div class="main-content full">
+    <div class="content-title">
+      <h1>在线问答</h1>
+    </div>
+    <div class="content-body">
+      <div class="qa">
+        <ol>
+          <% @questions.each do |question| %>
+            <li>
+              <!--<p><%= link_to question.title, refinery.qa_question_path(question, :locale => 'en') %></p>-->
+              <p><%= question.title %></p>
+              <%= question.body %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
