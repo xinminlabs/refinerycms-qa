@@ -5,9 +5,53 @@
                :include_object_name => true
              } %>
   <div class="fields">
-    <%= f.text_field :name, :class => 'text', :required => 'required', :placeholder => '输入你的姓名' %>
-    <%= f.text_field :title, :class => 'text', :required => 'required', :placeholder => '输入你的问题' %>
-    <%= f.text_area :body, :rows => 8, :required => 'required', :placeholder => '请描述你的问题' %>
+    <p class="caption">个人信息</p>
+    <div class="column name required">
+      <%= f.label :name, '真实姓名' %>
+      <%= f.text_field :name, :class => 'text', :required => 'required' %>
+    </div>
+    <div class="column gender">
+      <%= f.label :gender, '性别' %>
+      <%= f.radio_button :gender, 'male' %>
+      <%= f.label :gender_male, '男', class: 'for_radio' %>
+      <%= f.radio_button :gender, 'female' %>
+      <%= f.label :gender_female, '女', class: 'for_radio' %>
+    </div>
+    <div class="column phone">
+      <%= f.label :phone, '联系电话' %>
+      <%= f.text_field :phone, :class => 'text' %>
+    </div>
+    <div class="column job">
+      <%= f.label :job, '职业' %>
+      <%= f.text_field :job, :class => 'text' %>
+    </div>
+    <div class="column email required full">
+      <%= f.label :email, '电子邮箱' %>
+      <%= f.text_field :email, :class => 'text' %>
+    </div>
+    <div class="column address full">
+      <%= f.label :address, '联系地址' %>
+      <%= f.text_field :address, :class => 'text full-text' %>
+    </div>
+  </div>
+  <div class="fields">
+    <p class="caption">信件内容</p>
+    <div class="column title required full">
+      <%= f.label :title, '咨询标题' %>
+      <%= f.text_field :title, :class => 'text full-text' %>
+    </div>
+    <div class="column body required full">
+      <%= f.label :body, '咨询内容' %>
+      <%= f.text_area :body, :rows => 4, :required => 'required', :class => 'full-text' %>
+    </div>
+    <div class="column public_show required full">
+      <%= f.label :public_show, '公开意愿' %>
+      <%= f.radio_button :public_show, true %>
+      <%= f.label :public_show_true, '愿意', class: 'for_radio' %>
+      <%= f.radio_button :public_show, false %>
+      <%= f.label :public_show_false, '不愿意', class: 'for_radio' %>
+      <p>如果你选“不同意”，我们将对您的信件不进行公示！</p>
+    </div>
   </div>
   <div class="actions">
     <%= f.button  '重置', type: 'button' %>

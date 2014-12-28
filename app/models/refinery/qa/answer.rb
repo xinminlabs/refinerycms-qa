@@ -6,7 +6,7 @@ module Refinery
 
       belongs_to :question
 
-      attr_accessible :body
+      attr_accessible :body, :active
 
       validates :body, presence: true
 

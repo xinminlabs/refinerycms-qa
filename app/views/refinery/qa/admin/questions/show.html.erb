@@ -24,53 +24,65 @@
 </div>
 <div id='records'>
   <h2><%= t('.question') %></h2>
+  <%= form_for [refinery, :qa, :admin, @question, @answer] do |f| %>
   <table id='question'>
     <tr>
-      <td>
-        <strong><%= t('.title') %></strong>
-      </td>
-      <td>
-        <%= @question.title %>
-      </td>
+      <td><strong>真实姓名</strong></td>
+      <td><%= @question.name %></td>
     </tr>
     <tr>
-      <td>
-        <strong><%= t('.from') %></strong>
-      </td>
-      <td>
-        <%= @question.name %>
-      </td>
+      <td><strong>性别</strong></td>
+      <td><%= @question.gender == 'male' ? '男' : '女' %></td>
     </tr>
     <tr>
-      <td>
-        <strong><%= t('.date') %></strong>
-      </td>
-      <td>
-        <%= l(Date.parse(@question.created_at.to_s), :format => :long) %>
-      </td>
+      <td><strong>联系电话</strong></td>
+      <td><%= @question.phone %></td>
     </tr>
     <tr>
-      <td valign='top'>
-        <strong><%= t('.body') %></strong>
-      </td>
-      <td>
-        <%= simple_format strip_tags(@question.body), :style => 'margin-top: 0' %>
-      </td>
+      <td><strong>职业</strong></td>
+      <td><%= @question.job %></td>
     </tr>
-  </table>
-  <%= form_for [refinery, :qa, :admin, @question, @answer] do |f| %>
-  <table id='answer'>
     <tr>
-      <td valign='top'>
-        <strong>回答</strong>
-      </td>
+      <td><strong>电子邮箱</strong></td>
+      <td><%= @question.email %></td>
+    </tr>
+    <tr>
+      <td><strong>联系地址</strong></td>
+      <td><%= @question.address %></td>
+    </tr>
+    <tr>
+      <td><strong>时间</strong></td>
+      <td><%= l(Date.parse(@question.created_at.to_s), :format => :long) %></td>
+    </tr>
+    <tr>
+      <td><strong>咨询标题</strong></td>
+      <td><%= @question.title %></td>
+    </tr>
+    <tr>
+      <td valign='top'><strong>咨询内容</strong></td>
+      <td><%= simple_format strip_tags(@question.body), :style => 'margin-top: 0' %></td>
+    </tr>
+    <tr>
+      <td><strong>公开意愿</strong></td>
+      <td><%= @question.public_show ? '愿意' : '不愿意' %></td>
+    </tr>
+    <tr>
+      <td valign='top'><strong>回答</strong></td>
+      <td><%= f.text_area :body, :rows => 8, :style => "width: 400px", :required => 'required' %></td>
+    </tr>
+    <tr>
+      <td><strong>是否显示</strong></td>
       <td>
-        <%= f.text_area :body, :rows => 8, :style => "width: 400px", :required => 'required' %>
+        <%= f.radio_button :active, true %>
+        <%= f.label :active_true, '是', style: 'display:inline' %>
+        <%= f.radio_button :active, false %>
+        <%= f.label :active_false, '不', style: 'display:inline' %>
       </td>
+    </div>
     </tr>
     <tr>
       <td colspan='2'>
-        <%= f.submit '发送' %>
+        <%= f.submit '回复' %>
       </td>
     </tr>
   </table>

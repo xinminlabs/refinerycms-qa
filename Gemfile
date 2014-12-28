@@ -4,9 +4,11 @@ gemspec
 
 gem 'refinerycms', github: 'refinery/refinerycms'
 gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n'
-gem 'refinerycms-pages', github: 'refinery/refinerycms-pages'
+gem 'refinerycms-pages'
 
 gem "mime-types", "~> 1.25"
+
+gem "kaminari"
 
 group :test do
   gem 'refinerycms-testing', github: 'refinery/refinerycms'

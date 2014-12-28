@@ -12,7 +12,7 @@ module Refinery
         end
 
         def update
-          @question = Refinery::Qa::Question.find(params[:id])
+          @question = Refinery::Qa::Question.find(params[:question_id])
           @answer = @question.answer
           @answer.update_attributes(params[:answer])
           redirect_to [refinery, :qa, :admin, :questions]

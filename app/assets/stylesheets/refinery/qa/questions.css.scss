@@ -1,25 +1,108 @@
 .qa {
-  padding: 0 30px;
-  font-weight: bold;
-  font-size: 14px;
+  table {
+    width: 100%;
+    border: 0;
+    thead th {
+      border: 0;
+    }
+    tbody td {
+      border: 0;
+    }
+    th {
+      background-color: #c8c8c8;
+    }
+    th.date {
+      width: 200px;
+    }
+    th.name {
+      width: 100px;
+    }
+    th.detail {
+      width: 100px;
+    }
+    tr.odd td {
+      background-color: #b6d7ff;
+    }
+    tr.even td {
+      background-color: #e8f3ff;
+    }
+    td {
+      text-align: center;
+      padding: 0 5px;
+    }
+    td.title {
+      text-align: left;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
   form {
-    label {
-      width: 150px;
-      float: left;
-    }
-    input, textarea {
-      width: 100%;
-      margin: 10px 0;
-      padding: 5px 10px;
-      border-radius: 5px;
-      -moz-border-radius: 5px;
-      -webkit-border-radius: 5px;
-    }
-    .field {
-      margin: 12px 0px;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: #f6f6f6;
+    padding: 0 30px 30px 30px;
+    .fields {
+      overflow: hidden;
+      .caption {
+        color: #0264BE;
+        margin-top: 30px;
+      }
+      .column {
+        width: 50%;
+        height: 31px;
+        float: left;
+        margin: 5px 0;
+        &.body {
+          height: 100px;
+          position: relative;
+          label {
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          textarea {
+            position: absolute;
+            top: 0;
+            left: 85px;
+          }
+        }
+      }
+      label {
+        width: 80px;
+        display: inline-block;
+        text-align: right;
+        padding-right: 10px;
+        &.for_radio {
+          width: auto;
+        }
+      }
+      input[type=text] {
+        width: 150px;
+        padding: 5px 10px;
+      }
+      input[type=radio] {
+        width: 20px;
+      }
+      input.full-text, textarea.full-text {
+        width: 400px;
+      }
+      textarea {
+        padding: 5px 10px;
+      }
+      .full {
+        width: 100%;
+      }
+      .public_show {
+        height: 54px;
+        p {
+          margin: 0 0 0 85px;
+        }
+      }
     }
     .actions {
-      text-align: right;
+      text-align: center;
+      margin-top: 20px;
       input[type=submit] {
         width: 212px;
         height: 42px;
@@ -70,6 +153,40 @@
     margin: 10px;
     p {
       margin: 0;
+    }
+  }
+}
+.qa {
+  .page-content {
+    .main-content {
+      width: 600px;
+     .content-title {
+        height: 50px;
+        min-height: 50px;
+        padding: 0;
+        h1 {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .sidebar {
+      width: 360px;
+      margin-top: 65px;
+      background-color: #f6f6f6;
+      text-align: center;
+      font-size: 14px;
+      ul {
+        list-style-type: none;
+        padding: 0;
+        span.name {
+          color: #0264BE;
+        }
+      }
+      a.more {
+        float: right;
+        margin: 20px;
+        text-decoration: none;
+      }
     }
   }
 }

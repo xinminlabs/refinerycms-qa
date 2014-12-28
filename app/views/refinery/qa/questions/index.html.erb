@@ -1,19 +1,27 @@
 <div class="page-content">
   <div class="main-content full">
-    <div class="content-title">
-      <h1>在线问答</h1>
-    </div>
     <div class="content-body">
       <div class="qa">
-        <ol>
+        <table>
+          <thead>
+            <tr>
+              <th class="title">咨询主题</th>
+              <th class="date">处理时间</th>
+              <th class="name">提交人</th>
+              <th class="detail">详情</th>
+            </tr>
+          </thead>
+          <tbody>
           <% @questions.each do |question| %>
-            <li>
-              <!--<p><%= link_to question.title, refinery.qa_question_path(question, :locale => 'en') %></p>-->
-              <p><%= question.title %></p>
-              <%= question.body %>
-            </li>
+            <tr class="<%= cycle('odd', 'even') %>">
+              <td class="title"><%= question.title %></td>
+              <td class="date"><%= question.answer.created_at.strftime("%Y年%m月%d日") %></td>
+              <td class="name"><%= question.name %></td>
+              <td class="detail"><a href"#">点击查看详情</a></td>
+            </tr>
           <% end %>
-        </ul>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>

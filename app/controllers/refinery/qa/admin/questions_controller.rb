@@ -16,7 +16,7 @@ module Refinery
 
         def show
           @question = Refinery::Qa::Question.find(params[:id])
-          @answer = @question.answer || @question.build_answer
+          @answer = @question.answer || @question.build_answer(:active => false)
         end
 
       end

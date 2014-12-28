@@ -1,13 +1,20 @@
-<div class="page-content">
-  <div class="main-content full">
-    <div class="content-title">
-      <h1>在线提问</h1>
-    </div>
-    <div class="content-body">
-      <div class="qa">
-        <p>给我们留言，我们将第一时间答复您。</p>
+<div class="qa">
+  <div class="page-content">
+    <div class="main-content left">
+      <div class="content-title">
+        <h1>互动平台</h1>
+      </div>
+      <div class="content-body">
         <%= render "/refinery/qa/questions/form", question: @question %>
       </div>
+    </div>
+    <div class="sidebar right">
+      <ul>
+        <% active_questions.each do |q| %>
+          <li>[网上咨询]&nbsp;&nbsp;<span class="name"><%= q.name %></span>&nbsp;&nbsp;您的信件已办结，请查询</li>
+        <% end %>
+      </ul>
+      <a class="more" href="/questions">更多 >></a>
     </div>
   </div>
 </div>

@@ -7,7 +7,7 @@ module Refinery
       end
 
       def new
-        @question = Question.new
+        @question = Question.new gender: 'male', public_show: true
       end
 
       def create
@@ -21,7 +21,7 @@ module Refinery
       end
 
       def index
-        @questions = Question.all
+        @questions = Question.active.page(params[:page])
       end
 
       def show
