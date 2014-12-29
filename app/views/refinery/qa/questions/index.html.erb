@@ -12,14 +12,17 @@
             </tr>
           </thead>
           <tbody>
-          <% @questions.each do |question| %>
-            <tr class="<%= cycle('odd', 'even') %>">
-              <td class="title"><%= question.title %></td>
-              <td class="date"><%= question.answer.created_at.strftime("%Y年%m月%d日") %></td>
-              <td class="name"><%= question.name %></td>
-              <td class="detail"><a href"#" data-id="<%= question.id %>">点击查看详情</a></td>
+            <% @questions.each do |question| %>
+              <tr class="<%= cycle('odd', 'even') %>">
+                <td class="title"><%= question.title %></td>
+                <td class="date"><%= question.answer.created_at.strftime("%Y年%m月%d日") %></td>
+                <td class="name"><%= question.name %></td>
+                <td class="detail"><a href"#" data-id="<%= question.id %>">点击查看详情</a></td>
+              </tr>
+            <% end %>
+            <tr class="foot">
+              <td colspan="4"><%= will_paginate @questions %></td>
             </tr>
-          <% end %>
           </tbody>
         </table>
         <% @questions.each do |question| %>
