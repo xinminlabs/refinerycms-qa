@@ -12,7 +12,11 @@ module Refinery
       validates :title, presence: true, length: { maximum: 255 }
       validates :body, presence: true
 
-      scope :active, -> { joins('JOIN refinery_qa_answers ON refinery_qa_answers.question_id = refinery_qa_questions.id').where('refinery_qa_answers.active = ?', true) }
+      scope :active, -> {
+        joins('JOIN refinery_qa_answers ON refinery_qa_answers.question_id = refinery_qa_questions.id').
+        where('refinery_qa_answers.active = ?', true).
+        where('refinery_qa_questions.public_show = ?', true)
+      }
       default_scope { order('created_at DESC') }
     end
 

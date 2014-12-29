@@ -17,12 +17,61 @@
               <td class="title"><%= question.title %></td>
               <td class="date"><%= question.answer.created_at.strftime("%Y年%m月%d日") %></td>
               <td class="name"><%= question.name %></td>
-              <td class="detail"><a href"#">点击查看详情</a></td>
+              <td class="detail"><a href"#" data-id="<%= question.id %>">点击查看详情</a></td>
             </tr>
           <% end %>
           </tbody>
         </table>
+        <% @questions.each do |question| %>
+          <div class="popup" data-id="<%= question.id %>" style="display: none;">
+            <a class="close-btn" href="#">x</a>
+            <table>
+              <tr class="head">
+                <td colspan="2">详细信息</td>
+              </tr>
+              <tr>
+                <td>咨询主题</td>
+                <td><%= question.title %></td>
+              </tr>
+              <tr>
+                <td>咨询日期</td>
+                <td><%= question.created_at.to_s(:db) %></td>
+              </tr>
+              <tr>
+                <td>咨询者</td>
+                <td><%= question.name %></td>
+              </tr>
+              <tr>
+                <td>咨询内容</td>
+                <td><%= question.body %></td>
+              </tr>
+              <tr>
+                <td>当前状态</td>
+                <td>已受理</td>
+              </tr>
+              <tr>
+                <td>受理意见</td>
+                <td><%= question.answer.body %></td>
+              </tr>
+            </table>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+<% content_for :javascripts do %>
+  <%= javascript_tag do %>
+    $(function() {
+      $('.qa .detail a').click(function() {
+        var id = $(this).data('id');
+        $('.qa .popup[data-id='+id+']').show();
+        return false;
+      });
+      $('.qa .popup .close-btn').click(function() {
+        $(this).parent().hide();
+        return false;
+      });
+    });
+  <% end %>
+<% end %>
