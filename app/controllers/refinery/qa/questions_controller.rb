@@ -21,7 +21,7 @@ module Refinery
       end
 
       def index
-        @questions = Question.active.page(params[:page]).per_page(1)
+        @questions = Question.active.page(params[:page]).per_page(10)
       end
 
       def show
