@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
 
   s.add_dependency  'refinerycms-core'
   s.add_dependency  'refinerycms-settings'
+  s.add_dependency  'humanizer'
 end

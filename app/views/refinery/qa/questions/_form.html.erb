@@ -52,6 +52,11 @@
       <%= f.label :public_show_false, '不愿意', class: 'for_radio' %>
       <p>如果你选“不同意”，我们将对您的信件不进行公示！</p>
     </div>
+    <div class="column humanizer_answer required full">
+      <%= f.label :humanizer_answer, question.humanizer_question %>
+      <%= f.text_field :humanizer_answer %>
+      <%= f.hidden_field :humanizer_question_id %>
+    </div>
   </div>
   <div class="actions">
     <%= f.button  '重置', type: 'button' %>
